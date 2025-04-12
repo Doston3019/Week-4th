@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/bbd7108ae1.js" crossorigin="anonymous"></script>
+    <script src="app.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+        </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Movies</title>
+</head>
+<body>
+    <div id="app">
+        <div class="navbar2">
+            <div class="nav__wrapper2">
+                <div class="nav__logo2">
+                    <img src="	https://dev.d24jig8s1lr7n9.amplifyapp.com/img/whitelogo.39850b27.png" alt="" class="logo2">
+                </div>
+                <div class="nav__links2">
+                    <a href="./index.html" class="link router-link-exact-active2">
+                        Home
+                    </a>
+                    <a href="./Movie.html" class="link2">
+                        Find Movies
+                    </a>
+                    <a href="" class="nav__link-btn2">Contact</a>
+                </div>
+                <div id="phone-nav">
+                    <div class="bento-menu">
+                        <div class="dot-2"></div>
+                        <div class="dot-2"></div>
+                        <div class="dot-2"></div>
+                        <div class="dot-2"></div>
+                        <div class="dot-2"></div>
+                        <div class="dot-2"></div>
+                        <div class="dot-2"></div>
+                        <div class="dot-2"></div>
+                        <div class="dot-2"></div>
+                    </div>
+                    <div class="close-btn show"></div>
+                    <div class="showMenu active">
+                        <a href="./index.html" class="link router-link-exact-active3">Home</a>
+                        <a href="./Movie.html" class="link3">Find Movies</a>
+                        <a href="" class="nav__link-btn3">Contact</a>
+                    </div>
+                </div>
+                </div>
+                <div class="content__wrapper2">
+                    <h1 class="page__title">Browse our Movies</h1>
+                    <div class="input__wrapper2">
+                        <input type="text"   onchange="handleSearch(event)"     placeholder="Search by Make, Model or Name" class="search-input">
+                        <button class="not-loading2 search-button" onclick="loadingState(event)">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+            </div>
+            <div class="overlay">
+            </div>
+        </div>
+        <section id="search">
+            <div id="filter" class="filter-wrapper">
+                <h1 class="search-info">
+                    <span class="black-text">Search results:</span>
+                </h1>
+                <div class="price__filter">
+                    <h2 class="search-text">
+                        <span class="black-text__second">Movie:</span>
+                        Results
+                    </h2>
+                </div>
+            </div>
+        </section>
+        <div id="movies">
+            <div class="movies__wrapper">
+               
+            </div>
+        </div>
+    </div>
+</body>
+</html>

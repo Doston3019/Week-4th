@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="./style.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/bbd7108ae1.js" crossorigin="anonymous"></script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav__wrapper">
+            <div class="nav__logo">
+                <img src="	https://dev.d24jig8s1lr7n9.amplifyapp.com/img/blinker-icon.4f9b2663.png" class="logo"> 
+            </div>
+            <div class="nav__links">
+                <a href="./index.html" class="link router-link-exact-active">
+                    Home
+                </a>
+                <a href="./Movie.html" class="link">
+                    Find your movie
+                </a>
+                <a href="" class="nav__link-btn">Contact</a>
+            </div>
+            <div id="phone-nav">
+                <div class="bento-menu">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="close-btn show"></div>
+                <div class="showMenu active">
+                    <a href="./index.html" class="link router-link-exact-active3">Home</a>
+                    <a href="./Movie.html" class="link3">Find Movies</a>
+                    <a href="" class="nav__link-btn3">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="landing-page">
+        <div class="content__wrapper" style="position: relative">
+            <div class="row">
+                <div class="title__section">
+                <h1 class="title">America's most awarded Movie subscription platform</h1>
+                </div>
+                <div class="subtitle__section">
+                    <h2 class="subtitle">Find your Movies with <span class="purple">Blinker</span> </h2>
+                </div>
+                <div class="input__wrapper">
+                    <input type="text"   onchange="handleSearch(event)"    placeholder="Search by Make or Name" class="search-input">
+                    <button class="not-loading search-button" onclick="loadingState(event)">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <img src="https://dev.d24jig8s1lr7n9.amplifyapp.com/img/building.681ea6bf.png" alt="building" class="building">
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Section for displaying movie search results -->
+
+<section class="movies__wrapper"></section>
+<script>
+
+function handleSearch(event) {
+const input = document.getElementsByClassName("search-input")[0];
+const searchValue = input.value;
+if (event.type === "change") {
+
+console.log("Change event triggered with value:", searchValue);
+
+} else if (event.type === "click") {
+
+console.log("Click event triggered with value:", searchValue);
+
+ }
+
+fetchData(searchValue);
+
+ }
+
+
+
+const moviesWrapper = document.querySelector(".movies__wrapper");
+async function fetchData(searchValue) {
+try {
+const res = await fetch(`https://omdbapi.com/?s=${searchValue}&apikey=1de8a72c`);
+const data = await res.json();
+console.log(data.Search);
+if (!data.Search) {
+moviesWrapper.innerHTML = "<p>No Results:</p>";
+return;
+}
+
+
+
+moviesWrapper.innerHTML = data.Search.map((movie) => {
+
+return `<div class="movie__container">
+
+ <h1 class="movie-title">${movie.Title}</h1>
+
+ <p class="movie-year">Year: <span>${movie.Year}</span></p>
+
+ <p class="movie-imdbid">IMDB ID: <span>${movie.imdbID}</span></p>
+
+ <img class="movie__img" src="${movie.Poster}" alt="">
+
+ </div>`;
+
+ }).join("");
+
+ } catch (err) {
+
+console.log(err);
+
+ }
+
+ }
+
+
+
+// Event listener for the search button
+
+document.querySelector(".search-button").addEventListener("click", handleSearch);
+
+</script>
+
+</body>
+</html>
