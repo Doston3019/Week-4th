@@ -14,6 +14,7 @@ function handleSearch(event) {
 }
 
 
+
 async function fetchData(searchValue) {
 const moviesWrapper = document.querySelector(".movies__wrapper");
 

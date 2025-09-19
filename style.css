@@ -775,6 +775,40 @@ span {
     text-decoration: none;
 }
 
+/* Sorting filter styles */
+.sort__filter {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.sort__filter label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.sort__filter select {
+  padding: 6px 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.sort__filter select:hover {
+  border-color: #888;
+}
+
+.sort__filter select:focus {
+  outline: none;
+  border-color: #007BFF; /* nice blue highlight */
+}
+
 @media screen and (max-width: 750px) {
     #phone-nav {
         display: block;
